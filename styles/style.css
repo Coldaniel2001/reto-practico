@@ -1,4 +1,6 @@
-
+* {
+    color: #938585;
+}
  section {
     display: flex;
     justify-content: space-between;

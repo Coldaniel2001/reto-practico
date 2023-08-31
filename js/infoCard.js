@@ -1,91 +1,105 @@
+const profileImg = document.getElementById("profileImg");
+const nicknameProfile = document.getElementById("nicknameProfile");
+const nameProfile = document.getElementById("nameProfile");
+const nameCountry = document.getElementById("nameCountry");
+const genAge = document.getElementById("genAge");
+const faVenus = document.getElementsByClassName("fa-venus")[0];
 
-function getInfo(infoInflu) {
-    infoCardComplete.innerHTML = `
-    <div class="navBar__div--profile">
-    <div id="profileNavbar">
+const reachGraph = document.getElementById("reach");
+const revelanceGraph = document.getElementById("revelance");
+const resonanceGraph = document.getElementById("resonance");
 
-        <div id="imgProfile">
-            <i id="squareInsta" class="fa-brands fa-square-instagram fa-2xl" style="color: #b007df;"></i>
-            <img src=${infoInflu.account_picture} class="img-profile__img--info" id="profileImg" alt="profile-img" />
-        </div>
+const reachInfo= document.getElementById("reachInfo");
+const revelanceInfo = document.getElementById("revelanceInfo");
+const resonanceInfo = document.getElementById("resonanceInfo");
 
+const numberAudience = document.getElementById("numberAudience");
+const numberScope = document.getElementById("numberScope");
+const numberImpressions = document.getElementById("numberImpressions");
+const numberImpressionsScope = document.getElementById("numberImpressionsScope");
+const numberImpressionsAudience = document.getElementById("numberImpressionsAudience");
+const numberReproductions = document.getElementById("numberReproductions");
+const numberReproductionsScope = document.getElementById("numberReproductionsScope");
+const numberReproductionsAudience = document.getElementById("numberReproductionsAudience");
+const numberEngagement = document.getElementById("numberEngagement");
+const numberEngagementScope = document.getElementById("numberEngagementScope");
+const numberEngagementAudience = document.getElementById("numberEngagementAudience");
 
-        <div id="infoProfile">
-            <div>
-                <span style="font-size: 1.5rem;">${infoInflu.name}</span>
+function modifyInfo(infoInflu) {
+    profileImg.setAttribute("src", infoInflu.account_picture)
+    nameProfile.innerText = infoInflu.name;
+    nicknameProfile.innerText = infoInflu.username;
+    nameCountry.innerText = infoInflu.country;
+    infoInflu.gender !== "1" ? faVenus.setAttribute("class", "fa-mars" ) : "";
+    genAge.innerText = `${infoInflu.gender === "1" ? "Mujer" : "Hombre"}, ${infoInflu.age} años`;
+    
+    reachGraph.setAttribute("style", `--porcentaje: ${infoInflu.reach_formated_graph}; --color: blue`)
+    revelanceGraph.setAttribute("style", `--porcentaje: ${infoInflu.relevance_formated_graph}; --color: orange`)
+    resonanceGraph.setAttribute("style", `--porcentaje: ${infoInflu.resonance_formated_graph}; --color: cyan`)
+    
+    reachInfo.innerText = `${infoInflu.reach_formated_graph}%`;
+    revelanceInfo.innerText = `${infoInflu.relevance_formated_graph}%`;
+    resonanceInfo.innerText = `${infoInflu.resonance_formated_graph}%`;
 
-                <div style="font-size: 0.8rem;">
-                    <i class="fab fa-instagram" style="color: #a03cb4;"></i>
-                    <span style="color: rgb(12, 222, 246);">${infoInflu.username}</span>
-                </div>
+    numberAudience.innerText= infoInflu.followers_formated;
+    numberScope.innerText= infoInflu.reach_formated;
+    numberImpressions.innerText= infoInflu.impressions_formated;
+    numberImpressionsScope.innerText= `${infoInflu.ir_alcance}%`;
+    numberImpressionsAudience.innerText= `${infoInflu.ir_audiencia}%`;
+    numberReproductions.innerText= infoInflu.vplays_formated;
+    numberReproductionsScope.innerText= `${infoInflu.vr_alcance}%`;
+    numberReproductionsAudience.innerText= `${infoInflu.vr_audiencia}%`;
+    numberEngagement.innerText= infoInflu.engagement_formated;
+    numberEngagementScope.innerText= `${infoInflu.er_alcance}%`;
+    numberEngagementAudience.innerText= `${infoInflu.er_audiencia}%`;
 
-            </div>
-
-            <div style="font-size: 0.8rem;">
-                <img style="width: 1rem;" src="../img/Bandera_Nacional_de_España.png" alt="" />
-                <span>${infoInflu.country} -</span>
-                ${infoInflu.gender === "1" ? `<i class="fa-solid fa-venus" style="color: #f906c4;"></i>` : `<i class="fa-solid fa-mars" style="color: #004cff;"></i>`}
-                <span >${infoInflu.gender === "1" ? "Mujer" : "Hombre"}, ${infoInflu.age} años</span>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="graficNavbar">
-        <div class='porcentajes' style="--porcentaje: ${infoInflu.reach_formated_graph}; --color: blue">
-            <p class="typeClass" style="color: blue;">Reach</p>
-            <svg width="140" height="140">
-                <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                <circle r="25" cx="50%" cy="50%" pathlength="100" />
-            </svg>
-            <span>${infoInflu.reach_formated_graph}%</span>
-        </div>
-        <div class='porcentajes' style="--porcentaje: ${infoInflu.relevance_formated_graph} ; --color: orange">
-            <p class="typeClass"  style="color: orange;">Relevance</p>
-            <svg width="140" height="140">
-                <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                <circle r="25" cx="50%" cy="50%" pathlength="100" />
-            </svg>
-            <span>${infoInflu.relevance_formated_graph}%</span>
-        </div>
-        <div class='porcentajes' style="--porcentaje: ${infoInflu.resonance_formated_graph}  ; --color: cyan">
-            <p class="typeClass" style="color: cyan;">Resonance</p>
-            <svg width="140" height="140">
-                <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                <circle r="25" cx="50%" cy="50%" pathlength="100" />
-            </svg>
-            <span>${infoInflu.resonance_formated_graph}%</span>
-        </div>
-    </div>
-
-    <div id="opcions">
-
-        <div id="return" onClick="changePagesPreviousProfile()" style="cursor: pointer;">
-            <i class="fa-solid fa-right-from-bracket" style="color: #938585;"></i>
-            <span>Salir</span>
-        </div>
-        <div id="download" onClick="dowloadScreenShot()" style="cursor: pointer;">
-            <i class="fa-solid fa-download" style="color: #938585;"></i>
-            <span>Descargar Influcard</span>
-        </div>
-        <div>
-            <i class="fa-solid fa-eye" style="color: #938585;"></i>
-            <span>Ver perfil</span>
-        </div>
-        
-    </div>
-</div>
-    `
 }
 
+
+const returns = document.getElementById("return")
+const download = document.getElementById("download")
+
+returns.addEventListener("click", changePagesPreviousProfile);
+download.addEventListener("click", dowloadScreenShot);
+
+
 function dowloadScreenShot() {
-    html2canvas(infoCardComplete)
-    .then(canvas =>{
-        let link = document.createElement("a");
-        link.download = "Influcard.png";
-        link.href = canvas.toDataURL();
-        link.click();
-    })
+    Swal.fire({
+        text: 'La generación de la imagen puede tardar, por favor espere',
+        icon:"info",
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+          Swal.fire({
+            icon: 'success',
+            title: 'La descarga ha sido un exito',
+          })
+        }
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          html2canvas(infoCardComplete)
+          .then(canvas => {
+              let link = document.createElement("a");
+              link.download = "Influcard.png";
+              link.href = canvas.toDataURL();
+              link.click();
+          })
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Por favor, espere a que finalize la descarga.',
+          })
+        }
+      })
+
 }
 
 function changePagesPreviousProfile() {

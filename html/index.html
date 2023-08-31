@@ -5,13 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <link rel="stylesheet" type="text/css" href="../styles/infoCard.css">
     <link rel="stylesheet" type="text/css" href="../styles/graficNavbar.css">
+
     <script defer src="../js/infoCard.js"></script>
     <script defer src="../js/card.js"></script>
+    <script defer src="../js/amCharts/donutRadial.js"></script>
+    <script defer src="../js/amCharts/donutRadialGenre.js"></script>
+    <script defer src="../js/amCharts/donutRadialCountry.js"></script>
+    <script defer src="../js/amCharts/donutRadialTerritories.js"></script>
+    <script defer src="../js/amCharts/donutRadialTimeZone.js"></script>
+    <script defer src="../js/amCharts/barWeek.js"></script>
+    <script defer src="/js/bandsWork.js"></script>
+
     <script src="https://kit.fontawesome.com/ee8582386d.js" crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -19,113 +37,282 @@
 
     </section>
 
-        <div id="cardInfo" class="cardInfo-complete__full">
-            <div class="navBar__div--profile">
-                <div id="profileNavbar">
+    <div id="cardInfo" class="cardInfo-complete__full">
+        <div class="navBar__div--profile">
+            <div id="profileNavbar">
 
-                    <div id="imgProfile">
-                        <i id="squareInsta" class="fa-brands fa-square-instagram fa-2xl" style="color: #b007df;"></i>
-                        <img class="img-profile__img--info" id="profileImg" alt="profile-img" />
-                    </div>
+                <div id="imgProfile">
+                    <i id="squareInsta" class="fa-brands fa-square-instagram fa-2xl" style="color: #b007df;"></i>
+                    <img class="img-profile__img--info" id="profileImg" alt="profile-img" />
+                </div>
 
 
-                    <div id="infoProfile">
-                        <div>
-                            <span style="font-size: 1.5rem;">Name</span>
-
-                            <div style="font-size: 0.8rem;">
-                                <i class="fab fa-instagram" style="color: #a03cb4;"></i>
-                                <span style="color: rgb(12, 222, 246);">NickName</span>
-                            </div>
-
-                        </div>
+                <div id="infoProfile">
+                    <div>
+                        <span id="nameProfile" style="font-size: 1.5rem;">Name</span>
 
                         <div style="font-size: 0.8rem;">
-                            <img style="width: 1rem;" src="../img/Bandera_Nacional_de_España.png" alt="" />
-                            <span>ES -</span>
-                            <i class="fa-solid fa-venus" style="color: #f906c4;"></i>
-                            <span>Mujer, 32 años</span>
+                            <i class="fab fa-instagram" style="color: #a03cb4;"></i>
+                            <span id="nicknameProfile" style="color: rgb(12, 222, 246);">NickName</span>
                         </div>
+
                     </div>
 
-                </div>
-
-                <div id="graficNavbar">
-                    <div class='porcentajes' style="--porcentaje: 100; --color: blue">
-                        <p class="typeClass" style="color: blue;">Reach</p>
-                        <svg width="140" height="140">
-                            <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                            <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                        </svg>
-                        <span>100%</span>
-                    </div>
-                    <div class='porcentajes' style="--porcentaje: 83; --color: orange">
-                        <p class="typeClass" style="color: orange;">Relevance</p>
-                        <svg width="140" height="140">
-                            <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                            <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                        </svg>
-                        <span>83%</span>
-                    </div>
-                    <div class='porcentajes' style="--porcentaje: 60; --color: cyan">
-                        <p class="typeClass" style="color: cyan;">Resonance</p>
-                        <svg width="140" height="140">
-                            <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                            <circle r="25" cx="50%" cy="50%" pathlength="100" />
-                        </svg>
-                        <span>60%</span>
+                    <div style="font-size: 0.8rem;">
+                        <img style="width: 1rem;" src="../img/flags/es.png" alt="" />
+                        <span id="nameCountry">ES -</span>
+                        <i class="fa-solid fa-venus" style="color: #f906c4;"></i>
+                        <span id="genAge">Mujer, 32 años</span>
                     </div>
                 </div>
 
-                <div id="opcions">
+            </div>
 
-                    <div id="return" style="cursor: pointer;">
-                        <i class="fa-solid fa-right-from-bracket" style="color: #938585;"></i>
-                        <span>Salir</span>
-                    </div>
-                    <div  style="cursor: pointer;">
-                        <i class="fa-solid fa-download" style="color: #938585;"></i>
-                        <span>Descargar Influcard</span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-eye" style="color: #938585;"></i>
-                        <span>Ver perfil</span>
-                    </div>
-
+            <div id="graficNavbar">
+                <div id="reach" class='porcentajes' style="--porcentaje: 100; --color: blue">
+                    <p class="typeClass" style="color: blue;">Reach</p>
+                    <svg width="140" height="140">
+                        <circle r="25" cx="50%" cy="50%" pathlength="100" />
+                        <circle r="25" cx="50%" cy="50%" pathlength="100" />
+                    </svg>
+                    <span id="reachInfo">100%</span>
+                </div>
+                <div id="revelance" class='porcentajes' style="--porcentaje: 83; --color: orange">
+                    <p class="typeClass" style="color: orange;">Relevance</p>
+                    <svg width="140" height="140">
+                        <circle r="25" cx="50%" cy="50%" pathlength="100" />
+                        <circle r="25" cx="50%" cy="50%" pathlength="100" />
+                    </svg>
+                    <span id="revelanceInfo">83%</span>
+                </div>
+                <div id="resonance" class='porcentajes' style="--porcentaje: 60; --color: cyan">
+                    <p class="typeClass" style="color: cyan;">Resonance</p>
+                    <svg width="140" height="140">
+                        <circle r="25" cx="50%" cy="50%" pathlength="100" />
+                        <circle r="25" cx="50%" cy="50%" pathlength="100" />
+                    </svg>
+                    <span id="resonanceInfo">60%</span>
                 </div>
             </div>
-            <div id="mainInfo">
-                <div id="audience">
-    
-                    <div class="flex-main__info">
-                        <div class="circle-Img__div">
-                            <i class="fa-solid fa-users" style="margin: 0 auto;color: #ffffff;"></i>
-                        </div>
-                        <span>Audiencia</span>
-                    </div>
-    
-                    <div class="flex-main__info">
-                        <div class="flex-children__info">
-                            <span>Audiencia</span>
-                            <i class="fa-solid fa-users" style="color: #938585;"></i>
-                            <span>Numero</span>
-                        </div>
-    
-                        <div class="flex-children__info">
-                            <span>Seguidores Fake</span>
-                            <i class="fa-solid fa-users" style="color: #938585;"></i>
-                            <span>Numero</span>
-                        </div>
-    
-                        <div class="flex-children__info">
-                            <span>Audiencia Real</span>
-                            <i class="fa-solid fa-users-line" style="color: #938585;"></i>
-                            <span>Numero</span>
-                        </div>
-                    </div>
+
+            <div id="opcions">
+
+                <div id="return" style="cursor: pointer;">
+                    <i class="fa-solid fa-right-from-bracket" style="color: #938585;"></i>
+                    <span>Salir</span>
                 </div>
+                <div id="download" style="cursor: pointer;">
+                    <i class="fa-solid fa-download" style="color: #938585;"></i>
+                    <span>Descargar Influcard</span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-eye" style="color: #938585;"></i>
+                    <span>Ver perfil</span>
+                </div>
+
             </div>
         </div>
+        <div id="mainInfo">
+            <div id="audience">
+
+                <div class="flex-main__info">
+                    <div class="circle-Img__div">
+                        <i class="fa-solid fa-users" style="margin: 0 auto;color: #ffffff;"></i>
+                    </div>
+                    <span>AUDIENCIA</span>
+                </div>
+
+                <div class="flex-main__info">
+                    <div class="flex-children__info">
+                        <span>Audiencia</span>
+                        <i class="fa-solid fa-users" style="color: #938585;"></i>
+                        <span>Numero</span>
+                    </div>
+
+                    <div class="flex-children__info">
+                        <span>Seguidores Fake</span>
+                        <i class="fa-solid fa-users" style="color: #938585;"></i>
+                        <span>Numero</span>
+                    </div>
+
+                    <div class="flex-children__info">
+                        <span>Audiencia Real</span>
+                        <i class="fa-solid fa-users-line" style="color: #938585;"></i>
+                        <span>Numero</span>
+                    </div>
+                </div>
+
+                <div class="distribution-by-age__div">
+                    <span>Distribución por edad</span>
+                    <div id="chartdiv">
+
+                    </div>
+                </div>
+
+                <div class="distribution-genre-and-country__div">
+                    <div class="distribution-by-genre__div">
+                        <span>Distribución por género</span>
+                        <div id="chartGenrediv">
+
+                        </div>
+                    </div>
+                    <div class="distribution-by-country__div">
+                        <span>Distribución por país</span>
+                        <div id="chartCountrydiv">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="publications">
+
+                <div class="flex-main__info">
+                    <div class="circle-Img__div">
+                        <i class="fa-solid fa-camera" style="color: #ffffff;"></i>
+                    </div>
+                    <span>PUBLICACIONES</span>
+                </div>
+
+                <div class="distribution-by-territories__div">
+                    <span>Distribución de su publicaciones por territorios</span>
+                    <div id="chartTerritoriesdiv">
+
+                    </div>
+                </div>
+
+                <div class="distribution-by-time-zone__div">
+                    <span>Franja horaria de sus publicaciones</span>
+                    <div id="chartTimeZonediv">
+
+                    </div>
+                </div>
+
+                <div class="distribution-by-bands__div">
+                    <span>Marcas con las que ha trabajado</span>
+                    <div id="brands">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="performances">
+
+                <div class="flex-main__info">
+                    <div class="circle-Img__div">
+                        <i class="fa-solid fa-chart-line" style="color: #ffffff;"></i>
+                    </div>
+                    <span>DESEMPEÑO</span>
+                </div>
+
+                <div class="flex-performances__info">
+
+                    <div class="performances__div--container">
+                        <div class="performances-img__div--container">
+                            <div class="circle-dark-Img__div">
+                                <i class="fa-solid fa-users fa-xs" style="color: #ffffff;"></i>
+                            </div>
+                            <span>Audiencia</span>
+                        </div>
+                        <span id="numberAudience"></span>
+                    </div>
+
+                    <div class="performances__div--container">
+                        <div class="performances-img__div--container">
+                            <div class="circle-little-dark-Img__div">
+                                <i class="fa-solid fa-user fa-xs" style="color: #ffffff;"></i>
+                            </div>
+
+                            <span>Alcance</span>
+                        </div>
+                        <span id="numberScope"></span>
+                    </div>
+
+
+                </div>
+
+                <div class="flex-performances2__info">
+                    <div class="performances__div--container">
+                        <div class="performances-img__div--container">
+                            <div class="circle-navy-blue-Img__div">
+                                <i class="fa-solid fa-peace fa-xs" style="color: #ffffff;"></i>
+                            </div>
+                            <span>Impresiones</span>
+                        </div>
+                        <span id="numberImpressions"></span>
+                    </div>
+
+                    <div class="performances-info__div--container">
+                        <div class="flex-info-performances-border--container">
+                            <span id="numberImpressionsScope"></span>
+                            <span>Alcance</span>
+                        </div>
+
+                        <div class="flex-info-performances">
+                            <span id="numberImpressionsAudience"></span>
+                            <span>Audiencia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-performances2__info">
+                    <div class="performances__div--container">
+                        <div class="performances-img__div--container">
+                            <div class="circle-light-blue-Img__div">
+                                <i class="fa-solid fa-play fa-xs" style="color: #ffffff;"></i>
+                            </div>
+                            <span>Reproduciones</span>
+                        </div>
+                        <span id="numberReproductions"></span>
+                    </div>
+
+                    <div class="performances-info__div--container">
+                        <div class="flex-info-performances-border--container">
+                            <span id="numberReproductionsScope"></span>
+                            <span>Alcance</span>
+                        </div>
+
+                        <div class="flex-info-performances">
+                            <span id="numberReproductionsAudience"></span>
+                            <span>Audiencia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-performances2__info">
+                    <div class="performances__div--container">
+                        <div class="performances-img__div--container">
+                            <div class="circle-blue-Img__div">
+                                <i class="fa-solid fa-heart fa-2xs" style="color: #ffffff;"></i>
+                            </div>
+                            <span>Engagement</span>
+                        </div>
+                        <span id="numberEngagement"></span>
+                    </div>
+
+                    <div class="performances-info__div--container">
+                        <div class="flex-info-performances-border--container">
+                            <span id="numberEngagementScope"></span>
+                            <span>Alcance</span>
+                        </div>
+
+                        <div class="flex-info-performances">
+                            <span id="numberEngagementAudience"></span>
+                            <span>Audiencia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="distribution-by-week__div">
+                    <span>Engagement rate según día de publicación</span>
+                    <div id="barWeek">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

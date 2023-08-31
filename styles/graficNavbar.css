@@ -18,12 +18,12 @@
     align-items: center;
     justify-content: center;
     font: 12px/1em Verdana;
-} 
+}
 
 .typeClass {
-    position:absolute;
+    position: absolute;
     font-size: 12px;
-    bottom:70%;
+    bottom: 70%;
     left: 37%;
 }
 
@@ -41,4 +41,34 @@ circle:nth-child(2) {
     stroke: var(--color);
     stroke-dasharray: 0 100;
     animation: rellenar .35s linear forwards;
+}
+
+#chartdiv {
+    width: 100%;
+    height: 100%;
+}
+
+#chartGenrediv {
+    width: 100%;
+    height: 100%;
+}
+
+#chartCountrydiv {
+    width: 100%;
+    height: 100%;
+}
+
+#chartTerritoriesdiv {
+    width: 100%;
+    height: 100%;
+}
+
+#chartTimeZonediv{
+    width: 100%;
+    height: 100%;
+}
+
+#barWeek{
+    width: 100%;
+    height: 100%;
 }

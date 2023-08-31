@@ -7,7 +7,6 @@ fetch('http://localhost:3000/influcard')
     .then(response => response.json())
     .then(data => createCard(data));
 
-
 function createCard(dataInfo) {
     for (let i = 0; i < 12; i++) {
         const divCard = document.createElement("div");
@@ -81,7 +80,7 @@ function createCard(dataInfo) {
 
         generAge.innerText += dataInfo.gender === "1" ? `Mujer, ${dataInfo.age}` : `Hombre, ${dataInfo.age}`;
         imgFlag.classList.add("img-flag");
-        imgFlag.setAttribute("src", "../img/Bandera_Nacional_de_España.png");
+        imgFlag.setAttribute("src", "../img/flags/es.png");
         imgFlag.setAttribute("alt", "icon-flag");
         nameFlag.innerText += dataInfo.country === "ES" ? "España" : "Desconocido";
 
@@ -194,10 +193,33 @@ function createCard(dataInfo) {
         divProfile.addEventListener("click", changePagesMenuProfile)
 
 
-        infoCardComplete.style.display = "block";
-        section.style.display = "none";
-        function changePagesMenuProfile() {
-            getInfo(dataInfo)
+        async function changePagesMenuProfile() {
+            Swal.fire({
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                  Swal.showLoading()
+                  const b = Swal.getHtmlContainer().querySelector('b')
+                  timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                  }, 100)
+                },
+                willClose: () => {
+                  clearInterval(timerInterval)
+                }
+              }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    infoCardComplete.style.display = "block";
+                    section.style.display = "none";
+                    modifyInfo(dataInfo)
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Por favor, espere a que cargue la página.',
+                      })
+                }
+              })
+       
         }
 
         headLine.innerText += `Ver Influcard`;
