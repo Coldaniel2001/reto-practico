@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/influcard')
+fetch('/db.json')
     .then(response => response.json())
     .then(data => modifyTerritoriesGraph(data));
 

@@ -1,5 +1,4 @@
 {
-  "influcard": {
     "id": "4__4355072",
     "channel": "4",
     "ext_id": "4355072",
@@ -1854,7 +1853,7 @@
     ],
     "brands_images": [
       {
-        "image": "https:\/\/images.brandmanic.com\/api\/v1\/getimage?type=9&account=31",
+        "image": "https:/images.brandmanic.com/api/v1/getimage?type=9&account=31",
         "name": "Benefit"
       },
       {
@@ -2070,73 +2069,4 @@
     "category_8": "<select id=\"ic_sel_category_8\" name=\"category_8\" class =\"form-control custom-select select2 influcard-category-select\" style=\"width:100px;margin-right:5px;\"   ><option  value=\"null\">Selecciona una categor\u00eda<\/option><option  value=\"ACTUALIDAD\" >ACTUALIDAD<\/option><option  value=\"ARTE\" >ARTE<\/option><option  value=\"BELLEZA\" >BELLEZA<\/option><option  value=\"COCINA\" >COCINA<\/option><option  value=\"CULTURA\" >CULTURA<\/option><option  value=\"DECORACI\u00d3N\" >DECORACI\u00d3N<\/option><option  value=\"DEPORTE\" >DEPORTE<\/option><option  value=\"DIY\" >DIY<\/option><option  value=\"ECOLOGIA\" >ECOLOGIA<\/option><option  value=\"ECONOM\u00cdA_MARKETING\" >ECONOM\u00cdA_MARKETING<\/option><option  value=\"ENTRETENIMIENTO\" >ENTRETENIMIENTO<\/option><option  value=\"FAMILIA\" >FAMILIA<\/option><option  value=\"FOTOGRAF\u00cdA\" >FOTOGRAF\u00cdA<\/option><option  value=\"GAMING\" >GAMING<\/option><option  value=\"INFANTIL\" >INFANTIL<\/option><option  value=\"LGTB\" >LGTB<\/option><option  value=\"LIFESTYLE\" >LIFESTYLE<\/option><option  value=\"MASCOTAS\" >MASCOTAS<\/option><option  value=\"MODA\" >MODA<\/option><option  value=\"MOTOR\" >MOTOR<\/option><option  value=\"PERIODISMO\" >PERIODISMO<\/option><option  value=\"SALUD\" >SALUD<\/option><option  value=\"TECNOLOG\u00cdA\" >TECNOLOG\u00cdA<\/option><option  value=\"TV_Y_CINE\" >TV_Y_CINE<\/option><option  value=\"VEGGIE\" >VEGGIE<\/option><option  value=\"VIAJES\" >VIAJES<\/option><option  value=\"VIDEO\" >VIDEO<\/option><\/select>",
     "brands_select": "<select id=\"sel-brands\" name=\"brands[]\" class =\"form-control custom-select select2 influcard-brands-select\" style=\"\" multiple=\"multiple\"  ><option  value=\"null\">Selecciona una marca<\/option><\/select>",
     "S3imagesServer": "https:\/\/images.brandmanic.com\/api\/v1\/"
-  },
-  "ages_array": {
-    "13": "13-17",
-    "18": "18-24",
-    "25": "25-34",
-    "35": "35-44",
-    "45": "45-64",
-    "65": "65 +"
-  },
-  "categories_color": {
-    "ACTUALIDAD": "#80ED99",
-    "ARTE": "#911F27",
-    "BELLEZA": "#FC5404",
-    "COCINA": "#4AA96C",
-    "CULTURA": "#FF7878",
-    "DECORACI\u00d3N": "#A58FAA",
-    "DEPORTE": "#3DB2FF",
-    "DIY": "#ECAC5D",
-    "ECOLOGISMO": "#6ECB63",
-    "ECOLOGIA": "#6ECB63",
-    "ECONOM\u00cdA_MARKETING": "#CD113B",
-    "ENTRETENIMIENTO": "#2F5D62",
-    "FAMILIA": "#FF00E4",
-    "FOTOGRAF\u00cdA": "#B2B8A3",
-    "GAMING": "#00EAD3",
-    "INFANTIL": "#FFED99",
-    "LGTB": "#FF0000",
-    "LIFESTYLE": "#FF95C5",
-    "MASCOTAS": "#FFB319",
-    "MODA": "#F7FD04",
-    "MOTOR": "#3F0713",
-    "PERIODISMO": "#C36839",
-    "SALUD": "#B5FFD9",
-    "TECNOLOG\u00cdA": "#C8C6C6",
-    "TV_Y_CINE": "#FF6B6B",
-    "VEGGIE": "#71EFA3",
-    "VIAJES": "#14279B",
-    "VIDEO": "#C2F784",
-    "OTRAS": "#F7F6F2",
-    "OTROS": "#F7F6F2"
-  },
-  "rrss_name": {
-    "1": "blog",
-    "2": "twitter",
-    "3": "facebook",
-    "4": "instagram",
-    "6": "youtube",
-    "7": "vine",
-    "8": "pinterest",
-    "9": "linkedin",
-    "10": "tumblr",
-    "11": "snapchat",
-    "12": "tiktok",
-    "13": "twitch"
-  },
-  "rrss_icons": {
-    "1": "fas fa-blog",
-    "2": "fab fa-twitter",
-    "3": "fab fa-facebook-square",
-    "4": "fab fa-instagram",
-    "6": "fab fa-youtube",
-    "7": "fab fa-vine",
-    "8": "fab fa-pinterest",
-    "9": "fab fa-linkedin",
-    "10": "fab fa-tumblr",
-    "11": "fab fa-snapchat",
-    "12": "fab fa-tiktok",
-    "13": "fab fa-twitch"
   }
-}

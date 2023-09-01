@@ -3,12 +3,13 @@ const infoCardComplete = document.getElementById("cardInfo");
 
 
 
-fetch('http://localhost:3000/influcard')
+fetch('/db.json')
     .then(response => response.json())
     .then(data => createCard(data));
 
-function createCard(dataInfo) {
-    for (let i = 0; i < 12; i++) {
+    
+    function createCard(dataInfo) {
+      for (let i = 0; i < 12; i++) {
         const divCard = document.createElement("div");
         //leftColumnCard
         const leftColumnCard = document.createElement("div");

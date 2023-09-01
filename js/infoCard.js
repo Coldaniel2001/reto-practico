@@ -63,6 +63,7 @@ returns.addEventListener("click", changePagesPreviousProfile);
 download.addEventListener("click", dowloadScreenShot);
 
 
+
 function dowloadScreenShot() {
     Swal.fire({
         text: 'La generación de la imagen puede tardar, por favor espere',
