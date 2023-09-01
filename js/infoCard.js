@@ -88,9 +88,9 @@ function dowloadScreenShot() {
         if (result.dismiss === Swal.DismissReason.timer) {
           html2canvas(infoCardComplete)
           .then(canvas => {
+            let link = document.createElement("a");
             canvas.width = 1720
             canvas.height = 900
-              let link = document.createElement("a");
               link.download = "Influcard.png";
               link.href = canvas.toDataURL();
               link.click();
