@@ -89,8 +89,6 @@ function dowloadScreenShot() {
           html2canvas(infoCardComplete)
           .then(canvas => {
             let link = document.createElement("a");
-            canvas.width = 1720
-            canvas.height = 900
               link.download = "Influcard.png";
               link.href = canvas.toDataURL();
               link.click();
