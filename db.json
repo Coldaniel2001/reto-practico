@@ -1853,7 +1853,7 @@
     ],
     "brands_images": [
       {
-        "image": "https:/images.brandmanic.com/api/v1/getimage?type=9&account=31",
+        "image": "https:\/\/images.brandmanic.com\/api\/v1/getimage?type=9&account=31",
         "name": "Benefit"
       },
       {

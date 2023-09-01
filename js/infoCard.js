@@ -90,9 +90,10 @@ function dowloadScreenShot() {
           .then(canvas => {
               let link = document.createElement("a");
               link.download = "Influcard.png";
-              link.href = canvas.toDataURL();
+              link.href = canvas.toDataURL("image/jpeg", 1.0);
               link.click();
           })
+          
         }else{
           Swal.fire({
             icon: 'error',
