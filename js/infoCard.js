@@ -90,12 +90,10 @@ function dowloadScreenShot() {
           .then(canvas => {
             canvas.width = 1720
             canvas.height = 900
-            canvas.style = "width: 1720px; height: 900px"
               let link = document.createElement("a");
               link.download = "Influcard.png";
               link.href = canvas.toDataURL();
               link.click();
-              console.log(canvas)
           })
           
         }else{
